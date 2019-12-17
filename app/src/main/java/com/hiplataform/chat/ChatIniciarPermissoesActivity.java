@@ -35,12 +35,6 @@ public class ChatIniciarPermissoesActivity extends AppCompatActivity {
     private String audioPerm = Manifest.permission.RECORD_AUDIO;
     private String audioStPerm = Manifest.permission.MODIFY_AUDIO_SETTINGS;
 
-//    private int grantedCam = ContextCompat.checkSelfPermission(this, camPermission);
-//    private int grantedWe = ContextCompat.checkSelfPermission(this, wePermission);
-//    private int grantedRe = ContextCompat.checkSelfPermission(this, rePermission);
-//    private int grantedAudio = ContextCompat.checkSelfPermission(this, audioPerm);
-//    private int grantedAudioSt = ContextCompat.checkSelfPermission(this, audioStPerm);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +47,7 @@ public class ChatIniciarPermissoesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                VerificarPerm();
+                VerificarPermissoes();
             }
         });
 
@@ -64,7 +58,7 @@ public class ChatIniciarPermissoesActivity extends AppCompatActivity {
         startActivity(oIntent);
     }
 
-    private void VerificarPerm() {
+    private void VerificarPermissoes() {
     if(Build.VERSION.SDK_INT >= 23 &&(ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) !=PackageManager.PERMISSION_GRANTED
                 ||ContextCompat.checkSelfPermission(this, Manifest.permission.MODIFY_AUDIO_SETTINGS) !=PackageManager.PERMISSION_GRANTED
                 ||ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=PackageManager.PERMISSION_GRANTED
@@ -86,7 +80,7 @@ public class ChatIniciarPermissoesActivity extends AppCompatActivity {
             if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 abrirWebView();
             } else {
-                Toast.makeText(oActivity, "Permission Denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(oActivity, "Permissões negadas!", Toast.LENGTH_SHORT).show();
             }
         }
     }

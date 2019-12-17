@@ -23,7 +23,8 @@
         </activity>
         <activity
             android:name=".ChatWebActivity"
-            android:screenOrientation="sensorPortrait" />
+            android:screenOrientation="sensorPortrait"
+            android:label="Chat"/>
         <activity
             android:name=".ChatIniciarPermissoesActivity"
             android:screenOrientation="sensorPortrait">
